@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Tax Calculator2</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+        <script>
+        window.onload=function()
+        {
+            document.getElementById('btnCalc').addEventListener('click', calcTax);
+        }
+        
+        function calcTax(e)
+        {
+            var gross = document.getElementById('gross').value;
+            var taxableWages = (gross/100 )*23;
+            var result = "Your net pay will be: " + (gross - taxableWages);
+            console.log(result);
+         //alert(result);
+            document.getElementById('result').innerHTML = result;
+        }
+        </script>
+    </head>
+    <body>
+        <div data-role="page">
+        <div data-role="header">
+            <h1>Tax Calculator2</h1>
+        </div> <!-- header -->
+        
+		<div data-role="main" class="ui-content">
+        <label for="gross">Your gross pay:</label>
+        <input id="gross" type="number" />
+        <button id="btnCalc">Calculate</button>
+        <div id="result"></div>
+        </div> <!-- main -->
+        
+		<div data-role="footer">
+        <h2>Copyright AIT.ie</h2>
+        </div> <!-- footer -->
+        </div> <!-- page -->
+       
+    </body>
+</html>
+
